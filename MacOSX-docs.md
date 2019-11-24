@@ -34,3 +34,17 @@ in a new terminal window
 ```
 docker run --rm -t jstarcher/siege -c5  172.17.0.2
 ```
+
+## Run Scenarios
+Demonstrate downtime with standard RollingUpdate
+- modify line 22 in k8s/nginx/deploy.yaml to change version
+
+Demonstrate downtime with standard RollingUpdate w/ lifecycle probes
+- apply probe kustomization
+- - ```kubectl apply -k kustom-probes/ ```
+- modify line 22 in k8s/nginx/deploy.yaml to change version
+
+Demonstrate downtime with standard RollingUpdate w/ lifecycle probes and prestop sleep
+- apply probe kustomization
+- - ```kubectl apply -k kustom-probes-prestop/ ```
+- modify line 22 in k8s/nginx/deploy.yaml to change version
